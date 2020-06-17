@@ -37,7 +37,9 @@ public class AdministratorRepository {
 	};
 	
 	/**
-	 * 管理者情報を挿入する
+	 * 管理者情報を挿入する.
+	 * 
+	 * @param Administrator:管理者情報
 	 */
 	public void insert(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
@@ -48,10 +50,11 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * @return Administrator
 	 * 
-	 * メールアドレスとパスワードから管理者情報を取得する
-	 * 情報がない場合nullを返す
+	 * メールアドレスとパスワードから管理者情報を取得する.<br>
+	 * 情報がない場合nullを返す.
+	 * 
+	 * @return 取得した管理者情報
 	 */
 	public Administrator findByMailAddressAndPassword(String mailAddress, String password) {
 		String sql = "SELECT * FROM administrators WHERE mail_address = :mailAddress AND password = :password";
