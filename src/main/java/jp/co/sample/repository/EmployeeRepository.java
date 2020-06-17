@@ -13,8 +13,9 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
+ * empoyeesテーブルを操作するリポジトリ.
+ * 
  * @author ren.akase
- * Employeeテーブルを操作するリポジトリ.
  *
  */
 @Repository
@@ -47,7 +48,7 @@ public class EmployeeRepository {
 	 * 
 	 */
 	public List<Employee> findAll() {
-		String sql ="SELECT * FROM employees ORDER BY hire_date DESC;";
+		String sql ="SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count FROM employees ORDER BY hire_date DESC;";
 		List<Employee> employeesList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 		
 		return employeesList;
@@ -56,11 +57,11 @@ public class EmployeeRepository {
 	/**
 	 * 主キーから従業員情報を取得する.
 	 * 
-	 * @param id:
+	 * @param id:ID
 	 * @return 引数に指定したidの従業員情報
 	 */
 	public Employee load(Integer id) {
-		String sql = "SELECT * FROM employees WHERE id = :id";;
+		String sql = "SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count FROM employees WHERE id = :id";;
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		
 		Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
@@ -69,13 +70,13 @@ public class EmployeeRepository {
 	}
 	
 	/**
-	 * 渡した従業員を更新する
+	 * 渡した従業員を更新する.
 	 * 
-	 * @param employee
+	 * @param 新しい従業員情報
 	 */
 	public void update(Employee employee) {
 		String sql ="UPDATE employees SET name = :name, image = :image, gender = :gender, hire_date = :hireDate, mail_address = :mailAddress,"
-				+ "zip_code = :zipCode, address = :address, telephone = :telephone, salary = :salary, characteristics = : characteristics,"
+				+ " zip_code = :zipCode, address = :address, telephone = :telephone, salary = :salary, characteristics = : characteristics,"
 				+ " dependents_count = :dependentsCount WHERE id = :id;";
 		
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
