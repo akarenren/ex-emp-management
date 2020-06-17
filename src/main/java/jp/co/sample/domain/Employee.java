@@ -2,21 +2,57 @@ package jp.co.sample.domain;
 
 import java.time.LocalDate;
 
+/**
+ * @author ren.akase
+ *
+ */
 public class Employee {
 
+	/**Id*/
 	private Integer id;
+	/**名前*/
 	private String name;
+	/**画像*/
 	private String image;
+	/**性別*/
 	private String gender;
+	/**入社日*/
 	private LocalDate hireDate;
+	/**メールアドレス*/
 	private String mailAddress;
+	/**郵便番号*/
 	private String zipCode;
+	/**住所*/
 	private String address;
+	/**電話番号*/
 	private String telephone;
+	/**給料*/
 	private Integer salary;
+	/**特性*/
 	private String characteristics;
+	/**扶養人数*/
 	private Integer dependentsCount;
 	
+	public Employee() {
+	}
+	
+	public Employee(Integer id, String name, String image, String gender, LocalDate hireDate, String mailAddress,
+			String zipCode, String address, String telephone, Integer salary, String characteristics,
+			Integer dependentsCount) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.gender = gender;
+		this.hireDate = hireDate;
+		this.mailAddress = mailAddress;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.telephone = telephone;
+		this.salary = salary;
+		this.characteristics = characteristics;
+		this.dependentsCount = dependentsCount;
+	}
 	
 	public Integer getId() {
 		return id;
@@ -90,6 +126,16 @@ public class Employee {
 	public void setDependentsCount(Integer dependentsCount) {
 		this.dependentsCount = dependentsCount;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
+				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
+				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
+				+ ", dependentsCount=" + dependentsCount + "]";
+	}
+	
+	
 	
 	
 }
