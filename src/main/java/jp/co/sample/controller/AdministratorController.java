@@ -11,7 +11,7 @@ import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
- * 管理者を操作するコントローラ
+ * 管理者を操作するコントローラ.
  * 
  * @author ren.akase
  *
@@ -48,7 +48,6 @@ public class AdministratorController {
 		Administrator administrator = new Administrator();
 		BeanUtils.copyProperties(form, administrator);
 		
-		AdministratorService administratorService = new AdministratorService();
 		administratorService.insert(administrator);
 
 		return "redirect:/";
