@@ -32,10 +32,12 @@ public class EmployeeRepository {
 		employee.setGender(rs.getString("gender"));
 		employee.setHireDate(rs.getDate("hire_date"));
 		employee.setMailAddress(rs.getString("mail_address"));
+		employee.setZipCode(rs.getString("zip_code"));
+		employee.setAddress(rs.getString("address"));
 		employee.setTelephone(rs.getString("telephone"));
 		employee.setSalary(rs.getInt("salary"));
 		employee.setCharacteristics(rs.getString("characteristics"));
-		employee.setDependentsCount(rs.getInt("dependentsCount"));
+		employee.setDependentsCount(rs.getInt("dependents_count"));
 		
 		return employee;
 	};
